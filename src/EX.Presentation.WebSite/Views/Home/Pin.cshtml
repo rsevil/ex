@@ -1,0 +1,30 @@
+﻿@model EX.Presentation.WebSite.Models.Home.Pin
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" action="@Url.Action("pin", "home")">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x => x.CreditCardNumber)
+            <div class="form-group">
+                <label for="@Html.IdFor(x => x.PinNumber)">@Html.DisplayNameFor(x => x.PinNumber)</label>
+                @Html.PasswordFor(x => x.PinNumber, new { @class = "form-control", placeholder = "xxx", maxlength = 3 })
+                @Html.ValidationMessageFor(x => x.PinNumber)
+            </div>
+            <button type="submit" class="btn btn-primary">OK</button>
+            <button id="btnClear" type="button" class="btn btn-default">Clear</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <a href="@Url.Action("exit", "home")" class="btn btn-default">Exit</a>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var view = new Views.Home.Pin();
+        });
+    </script>
+}

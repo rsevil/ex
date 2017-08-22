@@ -1,0 +1,29 @@
+﻿@model EX.Presentation.WebSite.Models.Operations.Withdrawal
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label for="@Html.IdFor(x => x.Amount)">@Html.DisplayNameFor(x => x.Amount)</label>
+                @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Amount)
+            </div>
+            <button type="submit" class="btn btn-primary">OK</button>
+            <button id="btnClear" type="button" class="btn btn-default">Clear</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <a href="@Url.Action("exit", "home")" class="btn btn-default">Exit</a>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var view = new Views.Operations.Withdrawal();
+        });
+    </script>
+}

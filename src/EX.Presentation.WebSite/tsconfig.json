@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "lib": [ "es2015", "es2015.iterable", "dom"] //https://github.com/angular/angular/issues/14595
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}

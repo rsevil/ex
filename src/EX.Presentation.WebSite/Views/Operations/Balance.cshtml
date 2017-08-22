@@ -1,0 +1,52 @@
+﻿@model EX.Core.Queries.DTO.Balance
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="@Html.IdFor(x => x.CreditCardNumber)">@Html.DisplayNameFor(x => x.CreditCardNumber)</label>
+            @Html.TextBoxFor(x => x.CreditCardNumber, new { @class = "form-control", disabled = "disabled" })
+        </div>
+        <div class="form-group">
+            <label for="@Html.IdFor(x => x.ValidFrom)">@Html.DisplayNameFor(x => x.ValidFrom)</label>
+            @Html.TextBoxFor(x => x.ValidFrom, new
+               {
+                   @class = "form-control",
+                   Value = Model.ValidFrom.ToString("MM/yyyy"),
+                   disabled = "disabled"
+               })
+        </div>
+        <div class="form-group">
+            <label for="@Html.IdFor(x => x.DueOn)">@Html.DisplayNameFor(x => x.DueOn)</label>
+            @Html.TextBoxFor(x => x.DueOn, "MM/YYYY", new
+               {
+                   @class = "form-control",
+                   Value = Model.DueOn.ToString("MM/yyyy"),
+                   disabled = "disabled"
+               })
+        </div>
+        <div class="form-group">
+            <label for="@Html.IdFor(x => x.Amount)">@Html.DisplayNameFor(x => x.Amount)</label>
+            @Html.TextBoxFor(x => x.Amount, new
+                {
+                    @class = "form-control",
+                    Value = Model.Amount.ToString("#0.00"),
+                    disabled = "disabled"
+                })
+        </div>
+        <div class="form-group">
+            <label for="@Html.IdFor(x => x.WithdrawnAmount)">@Html.DisplayNameFor(x => x.WithdrawnAmount)</label>
+            @Html.TextBoxFor(x => x.WithdrawnAmount, new
+               {
+                   @class = "form-control",
+                   Value = Model.WithdrawnAmount.ToString("#0.00"),
+                   disabled = "disabled"
+               })
+        </div>
+        <a href="@Url.Action("index", "operations")" class="btn btn-primary">Back</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <a href="@Url.Action("exit", "home")" class="btn btn-default">Exit</a>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@model EX.Presentation.WebSite.Models.Home.Index
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label for="@Html.IdFor(x => x.CreditCardNumber)">@Html.DisplayNameFor(x => x.CreditCardNumber)</label>
+                @Html.TextBoxFor(x => x.CreditCardNumber, new { @class="form-control",  data_mask = "9999-9999-9999-9999", placeholder = "xxxx-xxxx-xxxx-xxxx" })
+                @Html.ValidationMessageFor(x => x.CreditCardNumber)
+            </div>
+            <button type="submit" class="btn btn-primary">OK</button>
+            <button id="btnClear" type="button" class="btn btn-default">Clear</button>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var view = new Views.Home.Index();
+        });
+    </script>
+}
